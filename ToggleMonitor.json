@@ -1,0 +1,355 @@
+[
+    {
+        "id": "7b9ed63e.2138f8",
+        "type": "tab",
+        "label": "ToogleLED_Flow",
+        "disabled": false,
+        "info": "# Basic flow to start with STM32CubeMonitor."
+    },
+    {
+        "id": "1ebbb430.dac7dc",
+        "type": "ui_chartst",
+        "z": "7b9ed63e.2138f8",
+        "group": "f9c34dde.1e2f4",
+        "name": "myChart",
+        "order": 4,
+        "width": 15,
+        "height": 9,
+        "chartType": "line",
+        "curveType": "linear",
+        "duration": "10",
+        "ymin": "",
+        "ymax": "",
+        "x": 600,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6013fb0b.5b7504",
+        "type": "acquisition out",
+        "z": "7b9ed63e.2138f8",
+        "name": "myProbe_Out",
+        "probeconfig": "393e2a9a.95b056",
+        "x": 540,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4a573fb0.4bc99",
+        "type": "acquisition in",
+        "z": "7b9ed63e.2138f8",
+        "name": "myProbe_LEDs",
+        "probeconfig": "393e2a9a.95b056",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "a7c3e070.5a6c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d59587ff.cd1748",
+        "type": "variables",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "myVariables",
+        "accesspoint": 0,
+        "execonfig": "9b12431c.76603",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "ButtonEvent",
+        "triggerthreshold": "100",
+        "frequency": "",
+        "frequencyType": "100",
+        "snapshotheader": "",
+        "mode": "direct",
+        "lastImportedTime": 1601900370895,
+        "openStatus": true,
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "6013fb0b.5b7504"
+            ]
+        ]
+    },
+    {
+        "id": "fc00295e.79ada8",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Graphs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "1ebbb430.dac7dc"
+            ]
+        ]
+    },
+    {
+        "id": "5fd51c96.2330e4",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "START Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "start",
+        "x": 130,
+        "y": 20,
+        "wires": [
+            [
+                "d59587ff.cd1748"
+            ]
+        ]
+    },
+    {
+        "id": "52eadfe3.2c8cc",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "label": "STOP Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "stop",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "d59587ff.cd1748"
+            ]
+        ]
+    },
+    {
+        "id": "a7c3e070.5a6c",
+        "type": "processing",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "myVariables",
+        "groupid": "d59587ff.cd1748",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "full",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "1ebbb430.dac7dc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5a84631a.77156c",
+        "type": "template",
+        "z": "7b9ed63e.2138f8",
+        "name": "write_msg",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"variablelist\": [\n        {\n            \"address\": \"0x20000001\",\n            \"type\": 4,\n            \"value\": \"{{payload}}\"\n        }\n    ],\n    \"accesspoint\": 0\n}",
+        "output": "json",
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "f4a58356.6b8a8"
+            ]
+        ]
+    },
+    {
+        "id": "f4a58356.6b8a8",
+        "type": "change",
+        "z": "7b9ed63e.2138f8",
+        "name": "set topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "write",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "6013fb0b.5b7504"
+            ]
+        ]
+    },
+    {
+        "id": "d5b7f3b4.9a719",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 6,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "BLUE button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "5a84631a.77156c"
+            ]
+        ]
+    },
+    {
+        "id": "f9c34dde.1e2f4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Chart",
+        "tab": "17d09b07.741a55",
+        "order": 1,
+        "disp": true,
+        "width": "15",
+        "collapse": false
+    },
+    {
+        "id": "393e2a9a.95b056",
+        "type": "probe",
+        "z": "",
+        "probeid": "0672FF575056805087031552",
+        "probename": "ST-Link v2-1B (...31552)",
+        "protocol": "SWD",
+        "frequency": "1.8 MHz - Default",
+        "probeproperty": "{\"SWD\":[\"4.6 MHz\",\"1.8 MHz - Default\",\"950 kHz\",\"400 kHz\",\"150 kHz\"],\"JTAG\":[\"18 MHz\",\"9 MHz\",\"4.5 MHz\",\"2.25 MHz\",\"1.12 MHz - Default\",\"560 kHz\",\"280 kHz\",\"140 kHz\"]}",
+        "probeversion": "ST Link firmware version V2.J35",
+        "connectionType": "p2p"
+    },
+    {
+        "id": "9b12431c.76603",
+        "type": "exe-config",
+        "z": "",
+        "name": "ADC",
+        "exefile": "F:\\Works\\Keil5\\2020Microprocessor\\STM32L0ToogleLeds\\ToogleLeds\\MDK-ARM\\ToogleLeds\\ToogleLeds.axf",
+        "exefolder": "F:\\Works\\Keil5\\2020Microprocessor\\STM32L0ToogleLeds\\ToogleLeds\\MDK-ARM\\ToogleLeds\\",
+        "exevariablelist": [
+            {
+                "address": "0x08000d3c",
+                "name": "AHBPrescTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x20000002",
+                "name": "LED1Status",
+                "type": 1,
+                "checked": true
+            },
+            {
+                "address": "0x20000003",
+                "name": "LED2Status",
+                "type": 1,
+                "checked": true
+            },
+            {
+                "address": "0x08000d4c",
+                "name": "PLLMulTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x20000001",
+                "name": "ButtonEvent",
+                "type": 2,
+                "checked": true
+            },
+            {
+                "address": "0x20000000",
+                "name": "Status",
+                "type": 2
+            },
+            {
+                "address": "0x20000010",
+                "name": "uwTickFreq",
+                "type": 2
+            },
+            {
+                "address": "0x2000001c",
+                "name": "SystemCoreClock",
+                "type": 5
+            },
+            {
+                "address": "0x20000008",
+                "name": "tick",
+                "type": 5
+            },
+            {
+                "address": "0x20000018",
+                "name": "uwTick",
+                "type": 5
+            },
+            {
+                "address": "0x20000014",
+                "name": "uwTickPrio",
+                "type": 5
+            },
+            {
+                "address": "0x2000000c",
+                "name": "counter",
+                "type": 6,
+                "checked": false
+            }
+        ],
+        "expand": false,
+        "filename": "ToogleLeds.axf",
+        "exeModifiedTime": 1601566275628,
+        "configLastUpdate": 1601634870170
+    },
+    {
+        "id": "17d09b07.741a55",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
