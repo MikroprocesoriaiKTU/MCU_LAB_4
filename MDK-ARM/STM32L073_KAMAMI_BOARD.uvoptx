@@ -163,11 +163,6 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\STM32L073_KAMAMI_BOARD\../Core/Src/LPS25HB.c\val,0x10</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
-          <WinNumber>1</WinNumber>
           <ItemText>temperatura,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
@@ -309,7 +304,7 @@
 
   <Group>
     <GroupName>LPS25HB</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
