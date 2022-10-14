@@ -3,6 +3,7 @@
   ******************************************************************************
   * @file           : main.h
   * @brief          : Header for main.c file.
+  * @Author         : Lekt. dr. Vytautas Daunroas
   *                   This file contains the common defines of the application.
   ******************************************************************************
   * @attention
