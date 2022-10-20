@@ -53,19 +53,19 @@ uint8_t segmentNumber[10] = {
 
 #ifdef COMMON_CATODE
 uint8_t DigitNumber[4] = {
-  (~0x08), //1
-  (~0x04), //2
-  (~0x02), //3
-  (~0x01) //4
+  (~0x08), //COM1 
+  (~0x04), //COM2
+  (~0x02), //COM3
+  (~0x01)  //COM4
 };
 #endif
 
 #ifdef COMMON_ANODE
 uint8_t DigitNumber[4] = {
-  (0x08), //1
-  (0x04), //2
-  (0x02), //3
-  (0x01) //4
+  (0x08), //COM1
+  (0x04), //COM2
+  (0x02), //COM3
+  (0x01) 	//COM14
 };
 #endif
 /* Private functions -------------------------------------------------------*/
