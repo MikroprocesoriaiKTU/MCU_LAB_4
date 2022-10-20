@@ -1,8 +1,22 @@
+/**
+ ********************************************************************************
+ * @file    4DIG_7SEG_DISPLAY.h
+ * @author  :Vytautas Daunoras
+ * @date    :2022-10-20
+ ********************************************************************************
+ */
 #include "main.h"
-// sablonai priklauso nuo principines schemos pajungimo
-#define COMMON_CATODE   //COMMON_ANODE  COMMON_CATODE
+/**
+ * pasirenkama priklausomai nuo 7sementu ekrano tipo  
+ * Kamami makete naudojamas COMMON_CATODE 
+ * Galimi variantai:
+ * @param COMMON_CATODE arba COMMON_ANODE
+ * 
+*/
+#define COMMON_CATODE   
 #define refresh_rate 2  // in ms
 
+// sablonai priklauso nuo principines schemos pajungimo
 #define Aseg 0x40 // PC6
 #define Bseg 0x10 // PC4
 #define Cseg 0x08 // PC3

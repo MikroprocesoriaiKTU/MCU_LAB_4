@@ -78,7 +78,7 @@ static void MX_TIM2_Init(void);
 // Override the weak call back function
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
       if (htim->Instance == TIM2) {
-              temperatura = LPS25HB_Measure_Temperature( &hi2c2);
+              temperatura = LPS25HB_Measure_Temperature( &hi2c2); //Temperaturos nuskaitymas
       }
 }
 /* USER CODE END 0 */
@@ -124,7 +124,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
-   SevenSegment_Display(temperatura);
+		
+		SevenSegment_Display(temperatura);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

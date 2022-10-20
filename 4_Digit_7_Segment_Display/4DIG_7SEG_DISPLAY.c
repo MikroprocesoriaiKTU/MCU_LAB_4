@@ -54,11 +54,11 @@ void SevenSegment_Update(uint8_t number) {
 
 
 void SevenSegment_Display(float to_display) {
-  sprintf(mas, "%2.2f", to_display);
+  sprintf(mas, "%4.0f", to_display);
   temp1 = mas[0] - 48; //1 - 1st digit
   temp2 = mas[1] - 48; //2 - 2nd digit
-  temp3 = mas[3] - 48; //3 - 3rd digit
-  temp4 = mas[4] - 48; //4 - 4th digit
+  temp3 = mas[2] - 48; //3 - 3rd digit
+  temp4 = mas[3] - 48; //4 - 4th digit
 	
 	#ifdef COMMON_CATODE
 	SevenSegment_Update(segmentNumber[temp1]);
