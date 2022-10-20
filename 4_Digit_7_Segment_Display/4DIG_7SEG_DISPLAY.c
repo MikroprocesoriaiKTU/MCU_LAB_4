@@ -17,7 +17,7 @@ char mas[5] = {
   0,
 	0
 };
-uint8_t temp1, temp2, temp3, temp4;
+uint8_t temp1, temp2, temp3, temp4; //skaitmenys ekrane
 
 #ifdef COMMON_ANODE
 // Segment numbers stored in the array
