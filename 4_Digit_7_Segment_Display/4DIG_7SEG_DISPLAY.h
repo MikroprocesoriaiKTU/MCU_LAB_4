@@ -5,7 +5,9 @@
  * @date    :2022-10-20
  ********************************************************************************
  */
+/* Includes ------------------------------------------------------------------*/
 #include "main.h"
+/* Private defines -----------------------------------------------------------*/
 /**
  * pasirenkama priklausomai nuo 7sementu ekrano tipo  
  * Kamami makete naudojamas COMMON_CATODE 
@@ -14,7 +16,7 @@
  * 
 */
 #define COMMON_CATODE   
-#define refresh_rate 2  // in ms
+#define REFRESH_RATE 5  // in ms
 
 // sablonai priklauso nuo principines schemos pajungimo
 #define Aseg 0x40 // PC6
@@ -38,15 +40,7 @@
 #define COM3 ~0x02
 #define COM4 ~0x01
 #endif
-
-#define D1_HIGH() HAL_GPIO_WritePin(COM1_GPIO_Port, COM1_Pin, GPIO_PIN_SET)
-#define D1_LOW() HAL_GPIO_WritePin(COM1_GPIO_Port, COM1_Pin, GPIO_PIN_RESET)
-#define D2_HIGH() HAL_GPIO_WritePin(COM2_GPIO_Port, COM2_Pin, GPIO_PIN_SET)
-#define D2_LOW() HAL_GPIO_WritePin(COM2_GPIO_Port, COM2_Pin, GPIO_PIN_RESET)
-#define D3_HIGH() HAL_GPIO_WritePin(COM3_GPIO_Port, COM3_Pin, GPIO_PIN_SET)
-#define D3_LOW() HAL_GPIO_WritePin(COM3_GPIO_Port, COM3_Pin, GPIO_PIN_RESET)
-#define D4_HIGH() HAL_GPIO_WritePin(COM4_GPIO_Port, COM4_Pin, GPIO_PIN_SET)
-#define D4_LOW() HAL_GPIO_WritePin(COM4_GPIO_Port, COM4_Pin, GPIO_PIN_RESET)
-
-void SevenSegment_Update(uint8_t number);
+extern int mux_counter;
+/* Private function prototypes -----------------------------------------------*/
+void SevenSegment_Update(uint8_t number, uint8_t digit);
 void SevenSegment_Display(float to_display);

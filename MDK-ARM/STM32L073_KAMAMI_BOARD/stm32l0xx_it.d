@@ -36,4 +36,5 @@ stm32l073_kamami_board/stm32l0xx_it.o: ..\Core\Src\stm32l0xx_it.c \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_tim_ex.h \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_uart.h \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_uart_ex.h \
-  ..\Core\Inc\stm32l0xx_it.h ..\LPS25HB\LPS25HB.h
+  ..\Core\Inc\stm32l0xx_it.h ..\LPS25HB\LPS25HB.h \
+  ..\4_Digit_7_Segment_Display\4DIG_7SEG_DISPLAY.h
