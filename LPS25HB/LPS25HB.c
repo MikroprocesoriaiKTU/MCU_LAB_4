@@ -1,5 +1,12 @@
-#include "main.h"
+/**
+ ********************************************************************************
+ * @file    LPS25HB.c
+ * @author  :Vytautas Daunoras
+ * @date    :2022-10-20
+ ********************************************************************************
+ */
 
+#include "main.h"
 #include "LPS25HB.h"
 
 uint8_t chipID;
@@ -13,8 +20,8 @@ uint8_t LPS25HB_Initialise(I2C_HandleTypeDef * i2cHandle) {
   HAL_I2C_Mem_Read(i2cHandle, LPS25HB_ADDRESS, LPS25HB_WHO_AM_I, I2C_MEMADD_SIZE_8BIT, & chipID, 1, 100);
 
   if (chipID != LPS25HB_DEVICE_ID) {
-    return 1;
-  } //jei ID nesutampa inicializacija nutraukiama
+    return 1; //jei ID nesutampa inicializacija nutraukiama
+  } 
 
   datatowrite = (0x01 << 7); //power on PD
   if (HAL_I2C_Mem_Write(i2cHandle, LPS25HB_ADDRESS, LPS25HB_CTRL_REG1, I2C_MEMADD_SIZE_8BIT, & datatowrite, 1, 100) != HAL_OK) {
