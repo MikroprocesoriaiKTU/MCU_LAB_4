@@ -28,6 +28,19 @@
 #define Gseg 0x01 // PC0
 #define DPseg 0x80 // PC7
 
+#ifdef COMMON_ANODE 
+#define COM1 0x08
+#define COM2 0x04
+#define COM3 0x02
+#define COM4 0x01
+#endif
+#ifdef COMMON_CATODE
+#define COM1 ~0x08
+#define COM2 ~0x04
+#define COM3 ~0x02
+#define COM4 ~0x01
+#endif
+
 extern int mux_counter;
 /* Private function prototypes -----------------------------------------------*/
 void SevenSegment_Update(uint8_t number, uint8_t digit);

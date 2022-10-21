@@ -21,6 +21,14 @@ char mas[5] = {
 uint8_t temp1, temp2, temp3, temp4; //skaitmenys ekrane
 int mux_counter = 1;
 
+uint8_t DigitNumber[4] = {
+  (COM1), //COM1 
+  (COM2), //COM2
+  (COM3), //COM3
+  (COM4)  //COM4
+};
+
+
 #ifdef COMMON_CATODE
 uint8_t segmentNumber[10] = {
   (Aseg | Bseg | Cseg | Dseg | Eseg | Fseg), // 0
@@ -51,23 +59,8 @@ uint8_t segmentNumber[10] = {
 };
 #endif
 
-#ifdef COMMON_CATODE
-uint8_t DigitNumber[4] = {
-  (~0x08), //COM1 
-  (~0x04), //COM2
-  (~0x02), //COM3
-  (~0x01)  //COM4
-};
-#endif
 
-#ifdef COMMON_ANODE
-uint8_t DigitNumber[4] = {
-  (0x08), //COM1
-  (0x04), //COM2
-  (0x02), //COM3
-  (0x01) 	//COM14
-};
-#endif
+
 /* Private functions -------------------------------------------------------*/
 void SevenSegment_Update(uint8_t number, uint8_t digit) {
 
