@@ -74,9 +74,9 @@ void SevenSegment_Display(float to_display) {
   temp3 = mas[2] - 48; //3 - 3rd digit
   temp4 = mas[3] - 48; //4 - 4th digit
 
-  if (mux_counter == (REFRESH_RATE)) //1 skaitmuo
+  if (mux_counter == (REFRESH_RATE)) 					//1 skaitmuo
     SevenSegment_Update(segmentNumber[temp1], DigitNumber[0]);
-  else if (mux_counter == (REFRESH_RATE*2)) //2 skaitmuo
+  else if (mux_counter == (REFRESH_RATE*2)) 	//2 skaitmuo
   {
     SevenSegment_Update(segmentNumber[temp2], DigitNumber[1]);
   } else if (mux_counter == (REFRESH_RATE*3)) //3 skaitmuo
