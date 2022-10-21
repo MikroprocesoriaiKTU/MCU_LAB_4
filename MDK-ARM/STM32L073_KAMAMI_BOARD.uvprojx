@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32L073xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32L0xx_HAL_Driver/Inc;../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32L0xx/Include;../Drivers/CMSIS/Include;../LPS25HB;../4_Digit_7_Segment_Display</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32L0xx_HAL_Driver/Inc;../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32L0xx/Include;../Drivers/CMSIS/Include;../LPS25HB;../4_Digit_7_Segment_Display;..\RGB_LEDS</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -548,6 +548,16 @@
               <FileName>system_stm32l0xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/system_stm32l0xx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>RGB_LEDS</GroupName>
+          <Files>
+            <File>
+              <FileName>RGB_LEDS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\RGB_LEDS\RGB_LEDS.c</FilePath>
             </File>
           </Files>
         </Group>

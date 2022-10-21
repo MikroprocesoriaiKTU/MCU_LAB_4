@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "LPS25HB.h"
 #include "4DIG_7SEG_DISPLAY.h"
+#include "RGB_LEDS.h"
 
 /* USER CODE END Includes */
 
@@ -76,10 +77,18 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 // Override the weak call back function
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-      if (htim->Instance == TIM2) {
-              temperatura = LPS25HB_Measure_Temperature( &hi2c2); //Temperaturos nuskaitymas
-      }
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
+  if (htim -> Instance == TIM2) {
+    temperatura = LPS25HB_Measure_Temperature( & hi2c2); //Temperaturos nuskaitymas
+		
+    if ((temperatura) > 25) {
+      RED_LED1();
+    } else if ((temperatura) > 20) {
+      GREEN_LED1();
+    } else {
+      BLUE_LED1();
+    }
+  }
 }
 /* USER CODE END 0 */
 
@@ -127,7 +136,7 @@ int main(void)
 		
 		SevenSegment_Display(temperatura);
     /* USER CODE END WHILE */
-
+		
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

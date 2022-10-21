@@ -1,5 +1,5 @@
-stm32l073_kamami_board/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
-  ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal.h \
+stm32l073_kamami_board/rgb_leds.o: ..\RGB_LEDS\RGB_LEDS.c \
+  ..\Core\Inc\main.h ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal.h \
   ..\Core\Inc\stm32l0xx_hal_conf.h \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_rcc.h \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_def.h \
@@ -36,5 +36,4 @@ stm32l073_kamami_board/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_tim_ex.h \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_uart.h \
   ..\Drivers\STM32L0xx_HAL_Driver\Inc\stm32l0xx_hal_uart_ex.h \
-  ..\LPS25HB\LPS25HB.h ..\4_Digit_7_Segment_Display\4DIG_7SEG_DISPLAY.h \
   ..\RGB_LEDS\RGB_LEDS.h
