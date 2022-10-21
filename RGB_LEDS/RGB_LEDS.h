@@ -9,3 +9,4 @@
 void RED_LED1(void);
 void GREEN_LED1(void);
 void BLUE_LED1(void);
+void TurnOFF(void);
