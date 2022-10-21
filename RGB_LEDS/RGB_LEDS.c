@@ -8,6 +8,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "RGB_LEDS.h"
+
 GPIO_InitTypeDef GPIO_InitStruct = {
   0
 };
@@ -91,3 +92,4 @@ void BLUE_LED1(void) {
 	  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	  HAL_GPIO_Init(GPIOB, & GPIO_InitStruct);
 	}
+	

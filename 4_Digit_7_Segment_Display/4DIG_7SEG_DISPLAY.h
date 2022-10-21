@@ -45,3 +45,4 @@ extern int mux_counter;
 /* Private function prototypes -----------------------------------------------*/
 void SevenSegment_Update(uint8_t number, uint8_t digit);
 void SevenSegment_Display(float to_display);
+
