@@ -4330,30 +4330,30 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       256         36          6         18          9       1643   4dig_7seg_display.o
-       240         24          0          0          6       3847   lps25hb.o
-      1158         88          0          0        456      12743   main.o
-       364         16          0          0         20       1633   rgb_leds.o
-        56         26        192          0       1536        612   startup_stm32l073xx.o
-       200         24          0          5          4       6625   stm32l0xx_hal.o
-      1092         28          0          0          0      10367   stm32l0xx_hal_adc.o
-       322         24          0          0          0       6175   stm32l0xx_hal_cortex.o
-       138          0          0          0          0       6224   stm32l0xx_hal_dma.o
-       832         44          0          0          0       4715   stm32l0xx_hal_gpio.o
-      8528         96          0          0          0      34381   stm32l0xx_hal_i2c.o
-       310          0          0          0          0       5261   stm32l0xx_hal_i2c_ex.o
-       608         60          0          0          0      11768   stm32l0xx_hal_msp.o
-      3308        168          0          0          0       8883   stm32l0xx_hal_rcc.o
-       784         24          0          0          0       8011   stm32l0xx_hal_rcc_ex.o
-       258          0          0          0          0      19941   stm32l0xx_hal_spi.o
-      1692         24          0          0          0      34779   stm32l0xx_hal_tim.o
-       204          0          0          0          0       4129   stm32l0xx_hal_tim_ex.o
-      2368        228          0          0          0      34464   stm32l0xx_hal_uart.o
-        88         12          0          0          0        900   stm32l0xx_it.o
-         2          0         33          4          0       1907   system_stm32l0xx.o
+       256         36          6         18          9       1659   4dig_7seg_display.o
+       240         24          0          0          6       3863   lps25hb.o
+      1158         88          0          0        456      12759   main.o
+       364         16          0          0         20       1649   rgb_leds.o
+        56         26        192          0       1536        628   startup_stm32l073xx.o
+       200         24          0          5          4       6641   stm32l0xx_hal.o
+      1092         28          0          0          0      10383   stm32l0xx_hal_adc.o
+       322         24          0          0          0       6191   stm32l0xx_hal_cortex.o
+       138          0          0          0          0       6240   stm32l0xx_hal_dma.o
+       832         44          0          0          0       4731   stm32l0xx_hal_gpio.o
+      8528         96          0          0          0      34397   stm32l0xx_hal_i2c.o
+       310          0          0          0          0       5277   stm32l0xx_hal_i2c_ex.o
+       608         60          0          0          0      11784   stm32l0xx_hal_msp.o
+      3308        168          0          0          0       8899   stm32l0xx_hal_rcc.o
+       784         24          0          0          0       8027   stm32l0xx_hal_rcc_ex.o
+       258          0          0          0          0      19957   stm32l0xx_hal_spi.o
+      1692         24          0          0          0      34795   stm32l0xx_hal_tim.o
+       204          0          0          0          0       4145   stm32l0xx_hal_tim_ex.o
+      2368        228          0          0          0      34480   stm32l0xx_hal_uart.o
+        88         12          0          0          0        915   stm32l0xx_it.o
+         2          0         33          4          0       1923   system_stm32l0xx.o
 
     ----------------------------------------------------------------------
-     22832        922        264         28       2044     219008   Object Totals
+     22832        922        264         28       2044     219343   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         24          0          1          1         13          0   (incl. Padding)
 
@@ -4476,8 +4476,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     31180       1168        880         28       2140     220952   Grand Totals
-     31180       1168        880         28       2140     220952   ELF Image Totals
+     31180       1168        880         28       2140     221287   Grand Totals
+     31180       1168        880         28       2140     221287   ELF Image Totals
      31180       1168        880         28          0          0   ROM Totals
 
 ==============================================================================
