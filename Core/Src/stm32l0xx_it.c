@@ -128,7 +128,24 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-mux_counter++;
+static char symbol_no=0; 
+static int mux_counter=0,i;		
+mux_counter++;	
+	
+if (mux_counter%REFRESH_RATE==0)	// kviesti tik kai reikia atvaizduoti
+{    
+	SevenSegment_Update();
+	if (symbol_no==NUMBER_OF_DISPLAY_DIGITS-1)
+	{  symbol_no=0;
+		 mux_counter=0;
+		 // pabaigus vaizduoti temperatura, galima priimti nauja ismatuota reiksme
+		// kuri buvo perskaiciuota po matavimo
+		for (i=0;i<NUMBER_OF_DISPLAY_DIGITS;i++)
+		 display_digits[i]=temperature_digits_to_display[i]; // 1st digit    
+		
+	} else 
+	  symbol_no++;	
+}
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */

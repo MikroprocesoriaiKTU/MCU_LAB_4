@@ -30,13 +30,18 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l0xx_hal.h"
 
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+//#include "4DIG_7SEG_DISPLAY.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+
+typedef enum {IDLE, SAMPLE_REQUESTED,SAMPLE_READY} StatusType;
+extern StatusType Status;
+//extern char temperature_digits_to_display[NUMBER_OF_DISPLAY_DIGITS];
 
 /* USER CODE END ET */
 
