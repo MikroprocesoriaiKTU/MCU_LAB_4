@@ -35,7 +35,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-
+StatusType Status=IDLE;
 
 /* USER CODE END PD */
 
@@ -57,7 +57,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 float temperatura; // Temperatura
-
+unsigned char temperature_digits_to_display[NUMBER_OF_DISPLAY_DIGITS];
 
 
 /* USER CODE END PV */
@@ -78,16 +78,11 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 // Override the weak call back function
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
-  if (htim -> Instance == TIM2) {
-    temperatura = LPS25HB_Measure_Temperature( & hi2c2); //Temperaturos nuskaitymas
-		
-    if ((temperatura) > 25) {
-      RED_LED1();
-    } else if ((temperatura) > 20) {
-      GREEN_LED1();
-    } else {
-      BLUE_LED1();
-    }
+  if (htim -> Instance == TIM2) {		
+		if (Status == IDLE)  {
+			LPS25HB_Measure_Temperature_IT( &hi2c2); //Temperaturos nuskaitymas				
+		  Status=SAMPLE_REQUESTED;
+		}
   }
 }
 /* USER CODE END 0 */
@@ -135,10 +130,29 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1) {
 		
-		SevenSegment_Display(temperatura);
     /* USER CODE END WHILE */
 		
     /* USER CODE BEGIN 3 */
+		if (Status == SAMPLE_READY)
+		{
+		if ((temperatura) > 25) {
+      RED_LED1();
+    } else if ((temperatura) > 20) {
+      GREEN_LED1();
+    } else {
+      BLUE_LED1();
+    }
+
+		
+		// ismatavus nauja temperatura, perskaiciuojami atvaizduojami simboliai
+		temperature_digits_to_display[0] = (int)temperatura%10; // 1st digit
+    temperature_digits_to_display[1] = ((int)temperatura/10)%10; // 2nd digit
+    temperature_digits_to_display[2] = ((int)temperatura/100)%10; // 3rd digit
+    temperature_digits_to_display[3] = ((int)temperatura/1000)%10; // 4th digit
+				
+		Status=IDLE;
+	}		
+		
   }
   /* USER CODE END 3 */
 }

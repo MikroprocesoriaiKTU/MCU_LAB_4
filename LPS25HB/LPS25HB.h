@@ -21,8 +21,9 @@
 #define LPS25HB_RES_CONF 		0x10 			//Pressure and temperature Resolution
 
 /* Private function prototypes -----------------------------------------------*/
+extern float temperatura; // Temperatura
 
-uint8_t LPS25HB_Initialise(I2C_HandleTypeDef *i2cHandle);
-float   LPS25HB_Measure_Temperature(I2C_HandleTypeDef *i2cHandle);
+uint8_t 	LPS25HB_Initialise(I2C_HandleTypeDef *i2cHandle);
+uint8_t   LPS25HB_Measure_Temperature_IT(I2C_HandleTypeDef *i2cHandle);
 
 
